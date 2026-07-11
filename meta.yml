@@ -1,0 +1,71 @@
+---
+fullname: rocq2typst
+shortname: rocq2typst
+opam_name: rocq2typst
+organization: F1uctus
+community: false
+action: false
+nix: true
+coqdoc: false
+dune: true
+
+synopsis: Rendering of Rocq statements as Typst mathematical markup
+
+description: |-
+  Rocq -> Typst renderer built on coq-elpi. The core package provides the
+  rendering engine and an open clause database (typst.db); the companion
+  packages add notation dictionaries for Mathematical Components,
+  mathcomp-analysis, CoqEAL, and Infotheo. Consumers accumulate their own
+  clauses (targets, project notations, style overrides) into the database
+  and run the RenderTypst command.
+
+authors:
+- name: Ilya I. Nikitin
+  initial: true
+
+opam-file-maintainer: ilya.i.nikitin@proton.me
+
+license:
+  fullname: GNU General Public License v3.0 or later
+  identifier: GPL-3.0-or-later
+
+supported_coq_versions:
+  text: Rocq 9.1 (rocq-elpi 3.4.0)
+  opam: '{>= "9.1" & < "9.2~"}'
+
+dependencies:
+- opam:
+    name: rocq-elpi
+    version: '{>= "3.4.0"}'
+  description: |-
+    [Rocq-Elpi](https://github.com/LPCIC/coq-elpi) 3.4.0 or later
+- opam:
+    name: rocq-mathcomp-algebra
+    version: '{>= "2.5.0"}'
+  description: |-
+    [MathComp](https://math-comp.github.io) 2.5.0 algebra library (rocq2typst-mathcomp)
+- opam:
+    name: rocq-mathcomp-analysis
+    version: '{>= "1.16.0"}'
+  description: |-
+    [MathComp-Analysis](https://github.com/math-comp/analysis) 1.16.0 or later (rocq2typst-analysis)
+- opam:
+    name: coq-coqeal
+    version: '{>= "2.1.1"}'
+  description: |-
+    [CoqEAL](https://github.com/coq-community/coqeal) 2.1.1 or later (rocq2typst-coqeal)
+- opam:
+    name: coq-infotheo
+    version: '{>= "0.9.7"}'
+  description: |-
+    [Infotheo](https://github.com/affeldt-aist/infotheo) 0.9.7 or later (rocq2typst-infotheo)
+
+namespace: Typst
+
+opam_packages:
+- rocq2typst
+- rocq2typst-mathcomp
+- rocq2typst-analysis
+- rocq2typst-coqeal
+- rocq2typst-infotheo
+---

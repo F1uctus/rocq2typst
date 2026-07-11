@@ -1,0 +1,9 @@
+; Mathematical Components notation dictionary for the typst.db database.
+(rocq.theory
+ (name Typst.Mathcomp)
+ (package rocq2typst-mathcomp)
+ (flags :standard -w -all)
+ (modules Mathcomp)
+ (plugins rocq-elpi.elpi)
+ (theories elpi_elpi elpi HB mathcomp.boot mathcomp.order mathcomp.fingroup
+           mathcomp.algebra Typst.Core))

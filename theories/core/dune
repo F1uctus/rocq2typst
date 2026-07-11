@@ -1,0 +1,9 @@
+; Core of the Rocq -> Typst rendering: the typst.db database, holding the
+; printing engine and the open dictionary predicates, and the RenderTypst command.
+(rocq.theory
+ (name Typst.Core)
+ (package rocq2typst)
+ (flags :standard -w -all)
+ (modules Core)
+ (plugins rocq-elpi.elpi)
+ (theories elpi_elpi elpi))

@@ -1,0 +1,11 @@
+; mathcomp-analysis notation dictionary for the typst.db database.
+(rocq.theory
+ (name Typst.Analysis)
+ (package rocq2typst-analysis)
+ (flags :standard -w -all)
+ (modules Analysis)
+ (plugins rocq-elpi.elpi)
+ (theories elpi_elpi elpi HB mathcomp.boot mathcomp.order mathcomp.fingroup
+           mathcomp.algebra mathcomp.solvable mathcomp.field mathcomp.finmap
+           mathcomp.classical mathcomp.reals mathcomp.analysis
+           Typst.Core Typst.Mathcomp))

@@ -1,0 +1,10 @@
+; CoqEAL notation dictionary for the typst.db database.
+(rocq.theory
+ (name Typst.CoqEAL)
+ (package rocq2typst-coqeal)
+ (flags :standard -w -all)
+ (modules CoqEAL)
+ (plugins rocq-elpi.elpi)
+ (theories elpi_elpi elpi HB mathcomp.boot mathcomp.order mathcomp.fingroup
+           mathcomp.algebra Bignums Stdlib CoqEAL.refinements
+           Typst.Core Typst.Mathcomp))
