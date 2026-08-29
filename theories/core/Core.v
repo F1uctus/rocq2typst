@@ -166,10 +166,12 @@ adjoint-break-inside ff.
 
 % substitution of arguments into a format at the {} slots. Extra arguments
 % are dropped. The surrounding spaces are mandatory: rex.split drops empty
-% edge segments, so a {} at the edge of a format would lose its argument
+% edge segments, so a {} at the edge of a format would lose its argument.
+% The braces of the pattern stay unescaped: rex.split compiles through
+% Re.Str, whose parser rejects the escape \{ in ocaml-re before 1.14.0
 pred style-fmt i:string, i:list string, o:string.
 style-fmt Key Args Out :- style Key F, !, F1 is " " ^ F ^ " ",
-  rex.split "\\{\\}" F1 [P0 | Ps],
+  rex.split "{}" F1 [P0 | Ps],
   fmt-fill Ps Args Rest, std.string.concat "" [P0 | Rest] Out1,
   L is size Out1 - 2, Out is substring Out1 1 L.
 pred fmt-fill i:list string, i:list string, o:list string.
