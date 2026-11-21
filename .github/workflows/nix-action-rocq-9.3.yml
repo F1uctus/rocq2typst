@@ -30,8 +30,15 @@ jobs:
           authToken: ${{ github.event_name == 'push' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v')) && secrets.CACHIX_AUTH_TOKEN || '' }}
           skipPush: ${{ !secrets.CACHIX_AUTH_TOKEN || github.event_name != 'push' || (github.ref != 'refs/heads/main' && !startsWith(github.ref, 'refs/tags/v')) }}
       - name: Build renderer and dictionaries
+        shell: bash
         run: |
+          source_args=()
+          if [[ "$GITHUB_EVENT_NAME" == push ]]; then
+            source_url="https://codeload.github.com/$GITHUB_REPOSITORY/tar.gz/$GITHUB_SHA"
+            source=$(nix-prefetch-url --unpack --name source --print-path "$source_url" | tail -n 1)
+            source_args=(--arg src "$source")
+          fi
           for package in rocq2typst rocq2typst-mathcomp rocq2typst-analysis \
             rocq2typst-coqeal rocq2typst-infotheo; do
-            nix-build --no-out-link --argstr bundle rocq-9.3 --argstr job "$package"
+            nix-build --no-out-link "${source_args[@]}" --argstr bundle rocq-9.3 --argstr job "$package"
           done
