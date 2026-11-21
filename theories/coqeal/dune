@@ -5,6 +5,6 @@
  (flags :standard -w -all)
  (modules CoqEAL)
  (plugins rocq-elpi.elpi)
- (theories elpi_elpi elpi HB mathcomp.boot mathcomp.order mathcomp.fingroup
+ (theories elpi_elpi elpi HB mathcomp.boot mathcomp.order mathcomp.finite_group
            mathcomp.algebra Bignums Stdlib CoqEAL.refinements
            Typst.Core Typst.Mathcomp))

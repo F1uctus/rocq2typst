@@ -7,7 +7,7 @@
 *)
 
 From elpi Require Import elpi.
-From infotheo Require Import fdist.
+From infotheo.probability Require Import fdist.
 From Typst Require Import Core.
 
 Elpi Accumulate typst.db lp:{{

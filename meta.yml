@@ -30,35 +30,45 @@ license:
   identifier: GPL-3.0-or-later
 
 supported_coq_versions:
-  text: Rocq 9.1 (rocq-elpi 3.4.0)
-  opam: '{>= "9.1" & < "9.2~"}'
+  text: Rocq 9.3 (rocq-elpi 3.5.1, MathComp 2.6)
+  opam: '{>= "9.3" & < "9.4~"}'
 
 dependencies:
 - opam:
     name: rocq-elpi
-    version: '{>= "3.4.0"}'
+    version: '{>= "3.5.1"}'
   description: |-
-    [Rocq-Elpi](https://github.com/LPCIC/coq-elpi) 3.4.0 or later
+    [Rocq-Elpi](https://github.com/LPCIC/coq-elpi) 3.5.1 or later
+- opam:
+    name: rocq-mathcomp-finite-group
+    version: '{>= "2.6.0"}'
+  description: |-
+    MathComp finite group library (rocq2typst-mathcomp)
 - opam:
     name: rocq-mathcomp-algebra
-    version: '{>= "2.5.0"}'
+    version: '{>= "2.6.0"}'
   description: |-
-    [MathComp](https://math-comp.github.io) 2.5.0 algebra library (rocq2typst-mathcomp)
+    [MathComp](https://math-comp.github.io) 2.6.0 algebra library (rocq2typst-mathcomp)
 - opam:
     name: rocq-mathcomp-analysis
-    version: '{>= "1.16.0"}'
+    version: '{>= "1.19.0"}'
   description: |-
-    [MathComp-Analysis](https://github.com/math-comp/analysis) 1.16.0 or later (rocq2typst-analysis)
+    [MathComp-Analysis](https://github.com/math-comp/analysis) 1.19.0 or later (rocq2typst-analysis)
+- opam:
+    name: rocq-micromega-plugin
+    version: '{>= "1.1.1"}'
+  description: |-
+    Micromega theory used by the MathComp Analysis and Infotheo dictionaries
 - opam:
     name: coq-coqeal
-    version: '{>= "2.1.1"}'
+    version: '{>= "2.1.2"}'
   description: |-
-    [CoqEAL](https://github.com/coq-community/coqeal) 2.1.1 or later (rocq2typst-coqeal)
+    [CoqEAL](https://github.com/coq-community/coqeal) 2.1.2 or later (rocq2typst-coqeal)
 - opam:
-    name: coq-infotheo
-    version: '{>= "0.9.7"}'
+    name: rocq-infotheo
+    version: '{>= "0.9.9"}'
   description: |-
-    [Infotheo](https://github.com/affeldt-aist/infotheo) 0.9.7 or later (rocq2typst-infotheo)
+    [Infotheo](https://github.com/affeldt-aist/infotheo) 0.9.9 or later (rocq2typst-infotheo)
 
 namespace: Typst
 

@@ -5,7 +5,7 @@
  (flags :standard -w -all)
  (modules Infotheo)
  (plugins rocq-elpi.elpi)
- (theories elpi_elpi elpi HB mathcomp.boot mathcomp.order mathcomp.fingroup
+ (theories elpi_elpi elpi HB mathcomp.boot mathcomp.order mathcomp.finite_group
            mathcomp.algebra mathcomp.solvable mathcomp.field mathcomp.finmap
-           mathcomp.classical mathcomp.reals mathcomp.analysis mathcomp.ssreflect mathcomp.zify mathcomp.algebra_tactics Stdlib infotheo
-           Typst.Core))
+           mathcomp.classical mathcomp.reals mathcomp.analysis mathcomp.ssreflect mathcomp.zify Stdlib infotheo
+           micromega_plugin Typst.Core))

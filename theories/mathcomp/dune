@@ -5,5 +5,5 @@
  (flags :standard -w -all)
  (modules Mathcomp)
  (plugins rocq-elpi.elpi)
- (theories elpi_elpi elpi HB mathcomp.boot mathcomp.order mathcomp.fingroup
+ (theories elpi_elpi elpi HB mathcomp.boot mathcomp.order mathcomp.finite_group
            mathcomp.algebra Typst.Core))
