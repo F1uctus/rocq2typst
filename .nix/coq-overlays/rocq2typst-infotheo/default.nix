@@ -4,6 +4,7 @@
   coq,
   rocq2typst,
   mathcomp-infotheo,
+  micromega-plugin,
   version ? ../../../.,
 }:
 
@@ -13,7 +14,7 @@ mkCoqDerivation {
   inherit version;
   useDune = true;
 
-  propagatedBuildInputs = [ rocq2typst mathcomp-infotheo ];
+  propagatedBuildInputs = [ rocq2typst mathcomp-infotheo micromega-plugin ];
 
   meta = {
     description = "Infotheo notation dictionary for rocq2typst";

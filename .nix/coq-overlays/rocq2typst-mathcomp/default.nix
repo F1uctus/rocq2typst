@@ -4,6 +4,7 @@
   coq,
   rocq2typst,
   mathcomp-algebra,
+  mathcomp-fingroup,
   version ? ../../../.,
 }:
 
@@ -13,7 +14,7 @@ mkCoqDerivation {
   inherit version;
   useDune = true;
 
-  propagatedBuildInputs = [ rocq2typst mathcomp-algebra ];
+  propagatedBuildInputs = [ rocq2typst mathcomp-algebra mathcomp-fingroup ];
 
   meta = {
     description = "Mathematical Components notation dictionary for rocq2typst";

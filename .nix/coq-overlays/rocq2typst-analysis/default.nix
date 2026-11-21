@@ -4,6 +4,7 @@
   coq,
   rocq2typst-mathcomp,
   mathcomp-analysis,
+  micromega-plugin,
   version ? ../../../.,
 }:
 
@@ -13,7 +14,7 @@ mkCoqDerivation {
   inherit version;
   useDune = true;
 
-  propagatedBuildInputs = [ rocq2typst-mathcomp mathcomp-analysis ];
+  propagatedBuildInputs = [ rocq2typst-mathcomp mathcomp-analysis micromega-plugin ];
 
   meta = {
     description = "Mathcomp-analysis notation dictionary for rocq2typst";
