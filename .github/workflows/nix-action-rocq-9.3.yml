@@ -32,13 +32,17 @@ jobs:
       - name: Build renderer and dictionaries
         shell: bash
         run: |
+          nix_file=default.nix
           source_args=()
           if [[ "$GITHUB_EVENT_NAME" == push ]]; then
             source_url="https://codeload.github.com/$GITHUB_REPOSITORY/tar.gz/$GITHUB_SHA"
-            source_hash=$(nix-prefetch-url --unpack --name source "$source_url")
+            source_info=$(nix-prefetch-url --unpack --name source --print-path "$source_url")
+            mapfile -t source_lines <<< "$source_info"
+            source_hash="${source_lines[0]}"
+            nix_file="${source_lines[1]}/default.nix"
             source_args=(--arg config "{ src = builtins.fetchTarball { url = \"$source_url\"; sha256 = \"$source_hash\"; }; }")
           fi
           for package in rocq2typst rocq2typst-mathcomp rocq2typst-analysis \
             rocq2typst-coqeal rocq2typst-infotheo; do
-            nix-build --no-out-link "${source_args[@]}" --argstr bundle rocq-9.3 --argstr job "$package"
+            nix-build "$nix_file" --no-out-link "${source_args[@]}" --argstr bundle rocq-9.3 --argstr job "$package"
           done
