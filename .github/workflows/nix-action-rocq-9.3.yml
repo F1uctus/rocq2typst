@@ -36,7 +36,7 @@ jobs:
           if [[ "$GITHUB_EVENT_NAME" == push ]]; then
             source_url="https://codeload.github.com/$GITHUB_REPOSITORY/tar.gz/$GITHUB_SHA"
             source_hash=$(nix-prefetch-url --unpack --name source "$source_url")
-            source_args=(--arg src "builtins.fetchTarball { url = \"$source_url\"; sha256 = \"$source_hash\"; }")
+            source_args=(--arg config "{ src = builtins.fetchTarball { url = \"$source_url\"; sha256 = \"$source_hash\"; }; }")
           fi
           for package in rocq2typst rocq2typst-mathcomp rocq2typst-analysis \
             rocq2typst-coqeal rocq2typst-infotheo; do
