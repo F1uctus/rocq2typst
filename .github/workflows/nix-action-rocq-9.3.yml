@@ -17,7 +17,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        runner: [ubuntu-24.04, ubuntu-24.04-arm]
+        runner: ${{ fromJSON(startsWith(github.ref, 'refs/tags/v') && '["ubuntu-24.04-arm"]' || '["ubuntu-24.04-arm", "ubuntu-24.04"]') }}
     steps:
       - uses: actions/checkout@v6
         with:
